@@ -4,17 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+//Storege
+use Illuminate\Support\Facades\Storage;
 //Validator
 use Illuminate\Support\Facades\Validator;
 //認証
 use Illuminate\Support\Facades\Auth;
 
-//Models
+//model
 use App\Models\User;
-use App\Models\Buddy;
-use App\Models\Profile;
+use App\Models\Infomation;
 
-class BuddyController extends Controller
+class InfomationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,15 +24,7 @@ class BuddyController extends Controller
      */
     public function index()
     {
-        Buddy::where('buddy_id',Auth::user()->id)->update(['is_checked' => true ]);
-
-        $buddies = Buddy::where('buddy_id',Auth::user()->id)
-                        ->orderBy('created_at','desc')
-                        ->get();
-
-        return view('buddy.index',[
-            'buddies' => $buddies
-        ]);
+        //
     }
 
     /**
@@ -41,11 +34,7 @@ class BuddyController extends Controller
      */
     public function create()
     {
-        $login_user = User::find(Auth::user()->id);
-        $profiles = Profile::where('shop_id',$login_user->profile->shop_id)->get();
-        return view('buddy.create',[
-            'profiles' => $profiles
-        ]);
+        return view('infomation.create');
     }
 
     /**
@@ -56,30 +45,7 @@ class BuddyController extends Controller
      */
     public function store(Request $request)
     {
-        // バリデーション
-        $validator = Validator::make($request->all(), [
-            'dive_count' => 'required',
-            'buddy_id' => 'required',
-            'message' => 'required',
-        ]);
-
-        // バリデーション:エラー
-        if ($validator->fails()) {
-            return redirect()
-                ->route('buddy.create')
-                ->withInput()
-                ->withErrors($validator);
-        }
-
-        $data = $request->merge(['user_id' => Auth::user()->id])->all();
-        $result = Buddy::create($data);
-
-        $profile = Profile::find(Auth::user()->id);
-        $profile->increment('dive_count', $request->dive_count);
-
-        session()->flash('status', '登録が完了しました');
-        return redirect()->route('buddy.index');
-
+        //
     }
 
     /**
@@ -90,7 +56,10 @@ class BuddyController extends Controller
      */
     public function show($id)
     {
-        //
+        //profle_tableからユーザーidが一致するレコードを取得
+        $infomation = Infomation::where('user_id',$id)->first();
+        //profile.indexに$profileと$userを渡す
+        return view('infomation.show', ['infomation' => $infomation]);
     }
 
     /**

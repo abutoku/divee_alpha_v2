@@ -27,14 +27,14 @@
 
         <!-- ハンバーガーメニュー -->
         <div id="menu_contents" class="bg-paper w-[320px] min-h-[1000px] absolute p-8 z-40">
-            {{-- <div>
+            <div>
                 <!-- ユーザー名表示 -->
-                <a href="{{ route('profile.show', Auth::user()->id ) }}" class="flex justify-center items-center mt-10">
-                <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
+                <a href="{{ route('infomation.show', Auth::user()->infomation->user_id ) }}" class="flex justify-center items-center mt-10">
+                <img src="{{ Storage::url(Auth::user()->infomation->logo_image) }}"
                     class="h-16 w-16 rounded-full object-cover bg-white mr-4">
                 <div>{{ Auth::user()->name }}</div>
                 </a>
-            </div> --}}
+            </div>
 
             <div class="mt-12">
                 <ul>

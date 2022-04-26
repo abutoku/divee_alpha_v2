@@ -14,8 +14,7 @@ use Illuminate\Support\Facades\Auth;
 //model
 use App\Models\User;
 use App\Models\Profile;
-use App\Models\Buddy;
-use App\Models\Shop;
+
 
 
 class ProfileController extends Controller
@@ -26,49 +25,8 @@ class ProfileController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    //メンバー一覧を表示する関数
-    public function index()
-    {
-        //$profiles = Profile::all(); 全て取得
-        $login_user = User::find(Auth::user()->id);
 
-        $shop = Shop::find($login_user->profile->shop_id);
-
-
-
-        // カードランクごとにデータ取得
-        $pro = Profile::where('shop_id',$login_user->profile->shop_id)
-                        ->where('card_rank', 'Pro')->get();
-        $dm = Profile::where('shop_id',$login_user->profile->shop_id)
-                        ->where('card_rank', 'DM')->get();
-        $msd = Profile::where('shop_id',$login_user->profile->shop_id)
-                        ->where('card_rank', 'MSD')->get();
-        $aow = Profile::where('shop_id',$login_user->profile->shop_id)
-                        ->where('card_rank', 'AOW')->get();
-        $ow = Profile::where('shop_id',$login_user->profile->shop_id)
-                        ->where('card_rank','OW')->get();
-
-        return view ('profile.index', [
-            'pro' => $pro,
-            'dm' => $dm,
-            'msd' => $msd,
-            'aow' => $aow,
-            'ow' => $ow,
-            'shop' => $shop,
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
-    //プロフィール登録画面を表示する
-    public function create()
-    {
-        return view('profile.create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.

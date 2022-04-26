@@ -1,6 +1,5 @@
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
-    {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
         <a href="{{ route('setting.index') }}" class="flex">
             <svg class="h-6 w-6 text-gray-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -37,7 +36,7 @@
 </x-app-layout>
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap"></script>
-{{-- <script src="{{ mix('js/map.js') }}"></script> --}}
+
 
 <script>
 
