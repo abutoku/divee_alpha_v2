@@ -71,14 +71,21 @@ Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage
 
 Route::resource('post', PostController::class);
 
-//-----divemaps--------------//
+//-----infomation--------------//
+
+//ロゴ画像変更画面
+Route::get('/infomation/{infomation}/logo', [InfomationController::class,'logo'])
+->name('infomation.logo');
+
+//カバー画像変更画面
+Route::get('/infomation/{infomation}/cover', [InfomationController::class,'cover'])
+->name('infomation.cover');
+
 Route::resource('infomation', InfomationController::class);
 
 //-----profile-------------------//
 
-//ステータス画面切り替え
-Route::get('/profile/{profile}/list', [ProfileController::class,'list'])
-->name('profile.list');
+
 //プロフィール設定メニュー一覧
 Route::get('/profile/menu', [ProfileController::class,'menu'])
 ->name('profile.menu');
