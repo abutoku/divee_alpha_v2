@@ -8,7 +8,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 //認証
 use Illuminate\Support\Facades\Auth;
-
 //Models
 use App\Models\Site;
 

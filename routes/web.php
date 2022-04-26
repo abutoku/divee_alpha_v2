@@ -18,10 +18,10 @@ use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TideController;
 use App\Http\Controllers\BackController;
 use App\Http\Controllers\SetdataController;
-use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\DivemapController;
+use App\Http\Controllers\InfomationController;
 
 //認証
 use Illuminate\Support\Facades\Auth;
@@ -50,14 +50,15 @@ Route::get('/', function () {
     return redirect('dashboard');
 });
 
+//-----dashboard-------------------//
 Route::get('/dashboard', function () {
 
     //管理者アカウントの場合は別ページへ
     if(Auth::user()->admin == true) {
         return view('config');
     }
-
     return view('dashboard');
+
 })->middleware(['auth'])->name('dashboard');
 
 //-----post-------------------//
@@ -70,6 +71,9 @@ Route::post('post/{post}/unfavorites', [FavoriteController::class, 'destroy'])->
 Route::get('/post/mypage', [PostController::class, 'mydata'])->name('post.mypage');
 
 Route::resource('post', PostController::class);
+
+//-----divemaps--------------//
+Route::resource('infomation', InfomationController::class);
 
 //-----profile-------------------//
 

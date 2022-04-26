@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 //Storege
 use Illuminate\Support\Facades\Storage;
-
 //Validator
 use Illuminate\Support\Facades\Validator;
 //認証
