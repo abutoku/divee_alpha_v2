@@ -15,7 +15,6 @@
     </x-slot>
 
     <section class="mt-12">
-        <p class="mb-8">データ更新</p>
         <form action="{{ route('setdata.update',$setdata->id) }}" method="post">
             @method('put')
             @csrf

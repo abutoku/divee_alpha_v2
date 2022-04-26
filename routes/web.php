@@ -16,7 +16,6 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\MapController;
 use App\Http\Controllers\SiteController;
 use App\Http\Controllers\TideController;
-use App\Http\Controllers\BackController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\MasterController;
@@ -161,10 +160,6 @@ Route::post('/tide/select',[TideController::class,'select'])->name('tide.select'
 //------setting-------------------//
 //設定画面表示
 Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
-
-//------back-------------------//
-//店舗管理者
-Route::get('/back/index',[BackController::class,'index'])->name('back.index');
 
 //------master------------------//
 //管理者ページ
