@@ -38,8 +38,13 @@
 
             <div class="mt-12">
                 <ul>
-                    <a href="{{ route('profile.menu') }}">
-                        <li class="mb-6 pb-2 border-b">プロフィール編集</li>
+
+                    <a href="{{ route('divemap.index') }}">
+                        <li class="mb-6 pb-2 border-b">水中地図</li>
+                    </a>
+
+                    <a href="{{ route('site.create') }}">
+                        <li class="mb-6 pb-2 border-b">ダイブサイト登録</li>
                     </a>
 
                     <a href="{{ route('setting.index') }}">
@@ -50,9 +55,7 @@
                         <li class="mb-6 pb-2 border-b">ヘルプ</li>
                     </a>
 
-                    <a href={{ route('back.index') }}>
-                        <li class="mb-6 pb-2 border-b">管理者</li>
-                    </a>
+                    
 
                 </ul>
                 <!-- ログアウトボタン -->

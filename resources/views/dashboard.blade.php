@@ -11,7 +11,7 @@
     {{-- ----dashboardメイン部分---- --}}
 
     <!-- 選択ボタン -->
-    <section class="flex mt-14 mb-8 justify-center sm:justify-start sm:hidden">
+    <section class="flex mt-14 mb-8 justify-center sm:justify-start lg:hidden">
         <div class="rounded-2xl py-1 w-[200px] mr-4 border-2 border-divenavy bg-divenavy text-white flex justify-around">
             HOME</div>
         <a href="#" class="rounded-2xl py-1 w-[200px] border-2 border-divenavy flex justify-around mr-2 relative">
@@ -84,12 +84,12 @@
                         {{-- プロフィール画像 --}}
                         <div class="mr-10 flex justify-center items-center flex-col w-full relative">
                             <img src="{{ Storage::url(Auth::user()->infomation->logo_image) }}"
-                                class="absolute bottom-2 h-36 w-36 sm:h-48 sm:w-48 mb-2 rounded-full object-cover bg-white border-2 border-paper">
+                                class="absolute left-0 h-36 w-36 sm:h-48 sm:w-48 ml-12 mb-2 rounded-full object-cover bg-white border-2 border-paper">
                         </div>
                     </div>
 
                     {{-- ユーザー名 --}}
-                    <div class="flex justify-between items-end">
+                    <div class="flex justify-between items-end mt-20">
                         <h1 class="text-4xl mt-10 mr-8"><b>{{ Auth::user()->name }}</h1>
                     </div>
 

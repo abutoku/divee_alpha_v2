@@ -15,7 +15,7 @@
     </x-slot>
 
     <section class="mt-12">
-        <p class="mb-8">データ入力</p>
+        <p class="mb-8">データ追加</p>
         <form action="{{ route('setdata.store') }}" method="post">
             @csrf
             <table>
