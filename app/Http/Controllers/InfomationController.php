@@ -24,7 +24,7 @@ class InfomationController extends Controller
      */
     public function index()
     {
-        //
+        return view('infomation.index');
     }
 
     /**
@@ -60,6 +60,29 @@ class InfomationController extends Controller
         $infomation = Infomation::where('user_id',$id)->first();
         //profile.indexに$profileと$userを渡す
         return view('infomation.show', ['infomation' => $infomation]);
+    }
+
+    public function logo($id)
+    {
+        $infomation = Infomation::where('user_id',$id)->first();
+
+        //ログインユーザー以外の情報は表示しない
+        if(Auth::user()->id != $infomation->user_id) {
+        return abort('404');
+        }
+
+        return view('infomation.logo', ['infomation' => $infomation]);
+    }
+
+    public function cover($id)
+    {
+        $infomation = Infomation::where('user_id',$id)->first();
+
+        //ログインユーザー以外の情報は表示しない
+        if (Auth::user()->id != $infomation->user_id) {
+            return abort('404');
+        }
+        return view('infomation.cover', ['infomation' => $infomation]);
     }
 
     /**

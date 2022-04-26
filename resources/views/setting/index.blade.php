@@ -15,7 +15,7 @@
         <div class="bg-white w-80 rounded-lg">
 
             <div class="flex justify-start items-center h-12 border-b cursor-pointer hover:bg-gray-100">
-                <a href="{{ route('profile.menu') }}" class="ml-2">プロフィール編集</a>
+                <a href="{{ route('infomation.index') }}" class="ml-2">プロフィール編集</a>
             </div>
 
             <div class="flex justify-start items-center h-12 border-b cursor-pointer hover:bg-gray-100">
