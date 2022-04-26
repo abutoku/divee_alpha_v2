@@ -57,10 +57,10 @@ class User extends Authenticatable
         return $this->belongsToMany(Post::class)->withTimestamps();
     }
 
-    //$user->profile（1対1）
-    public function profile()
+    //$user->infomation（1対1）
+    public function infomation()
     {
-        return $this->hasOne(Profile::class);
+        return $this->hasOne(Infomation::class);
     }
 
     //$user->book（1対1）

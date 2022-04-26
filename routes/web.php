@@ -20,7 +20,6 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\SetdataController;
 use App\Http\Controllers\BuddyController;
 use App\Http\Controllers\SettingController;
-use App\Http\Controllers\ShopController;
 use App\Http\Controllers\MasterController;
 use App\Http\Controllers\DivemapController;
 
@@ -29,7 +28,7 @@ use Illuminate\Support\Facades\Auth;
 
 //Model
 use App\Models\Location;
-use App\Models\Buddy;
+
 
 
 /*
@@ -58,14 +57,7 @@ Route::get('/dashboard', function () {
         return view('config');
     }
 
-    //未読通知
-    $notice = Buddy::where('buddy_id',Auth::user()->id)
-                    ->where('is_checked',false)
-                    ->count();
-
-    return view('dashboard',[
-        'notice' => $notice,
-    ]);
+    return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
 //-----post-------------------//
@@ -144,9 +136,6 @@ Route::resource('site', SiteController::class);
 //-----setdata------------------//
 Route::resource('setdata', SetdataController::class);
 
-//-----buddy-----------------//
-Route::resource('buddy', BuddyController::class);
-
 //-----map-------------------//
 //Map画面表示のルート（場所）
 Route::get('/map/site', [MapController::class,'site'])->name('map.site');
@@ -165,9 +154,6 @@ Route::get('/tide/info',[TideController::class,'info'])->name('tide.info');
 //ポイント変更
 Route::post('/tide/select',[TideController::class,'select'])->name('tide.select');
 
-//------shop-------------------//
-Route::resource('shop', ShopController::class);
-
 //------setting-------------------//
 //設定画面表示
 Route::get('/setting/index',[SettingController::class,'index'])->name('setting.index');
@@ -181,7 +167,6 @@ Route::get('/back/index',[BackController::class,'index'])->name('back.index');
 Route::resource('master', MasterController::class);
 
 });
-
 //ユーザー認証ここまで
 
 

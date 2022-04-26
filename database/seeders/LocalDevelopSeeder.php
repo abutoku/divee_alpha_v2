@@ -21,16 +21,19 @@ class LocalDevelopSeeder extends Seeder
             'admin' => true,
         ]);
 
-        // デモショップ
-        \App\Models\Shop::create([
-            'shop_name' => 'DIVESHOP hogehoge',
-            'logo' => 'uploads/shop_logo.png',
-            'cover' => 'uploads/shop_demo.jpg',
-            'url' => 'https://gsacademy.jp/',
+        // ユーザー作成
+        \App\Models\Infomation::create([
+            'shop_url' => 'https://gsacademy.jp',
+            'user_id' => \App\Models\User::factory()->create([
+                            'name' => 'Diveshop hogehoge',
+                            'email'=> 'test@example.com'
+                            ])->id
         ]);
 
-        $this->call(UserSeeder::class);
+        //ダイブサイト作成
         $this->call(SiteSeeder::class);
+
+        //海況情報
         $this->call(SetdataSeeder::class);
 
     }
