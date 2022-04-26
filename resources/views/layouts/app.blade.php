@@ -27,24 +27,17 @@
 
         <!-- ハンバーガーメニュー -->
         <div id="menu_contents" class="bg-paper w-[320px] min-h-[1000px] absolute p-8 z-40">
-            <div>
+            {{-- <div>
                 <!-- ユーザー名表示 -->
                 <a href="{{ route('profile.show', Auth::user()->id ) }}" class="flex justify-center items-center mt-10">
                 <img src="{{ Storage::url(Auth::user()->profile->profile_image) }}"
                     class="h-16 w-16 rounded-full object-cover bg-white mr-4">
                 <div>{{ Auth::user()->name }}</div>
                 </a>
-            </div>
+            </div> --}}
 
             <div class="mt-12">
                 <ul>
-
-                    @if(Auth::user()->profile->shop_id)
-                    <a href="{{ route('profile.index') }}">
-                        <li class="mb-6 pb-2 border-b">メンバー一覧</li>
-                    </a>
-                    @endif
-
                     <a href="{{ route('profile.menu') }}">
                         <li class="mb-6 pb-2 border-b">プロフィール編集</li>
                     </a>
@@ -57,11 +50,9 @@
                         <li class="mb-6 pb-2 border-b">ヘルプ</li>
                     </a>
 
-                    @if(Auth::user()->profile->card_rank == 'Pro')
                     <a href={{ route('back.index') }}>
                         <li class="mb-6 pb-2 border-b">管理者</li>
                     </a>
-                    @endif
 
                 </ul>
                 <!-- ログアウトボタン -->

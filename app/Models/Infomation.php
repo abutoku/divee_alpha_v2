@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Shop extends Model
+class Infomation extends Model
 {
     use HasFactory;
 
@@ -15,11 +15,10 @@ class Shop extends Model
         'updated_at',
     ];
 
-    //$shop->profiles
-    public function profiles ()
+    //$infomation->user
+    public function user()
     {
-        return $this->hasMany(Profile::class);
+        return $this->belongsTo(User::class);
     }
-
 
 }
