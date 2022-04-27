@@ -26,7 +26,7 @@ $('#mask').on('click', function () {
   $('#menu_contents').hide(); //メニュー中身隠す
 }); //---プロフィール写真が選択されたらプレビューを表示---//
 
-$('#profile_image').on('change', function (e) {
+$('#logo_image').on('change', function (e) {
   var reader = new FileReader();
 
   reader.onload = function (e) {

@@ -24,7 +24,7 @@ $('#mask').on('click', function () {
 
 //---プロフィール写真が選択されたらプレビューを表示---//
 
-$('#profile_image').on('change', function (e) {
+$('#logo_image').on('change', function (e) {
     var reader = new FileReader();
     reader.onload = function (e) {
         $("#demo_img").attr('src', e.target.result);

@@ -96,6 +96,41 @@ class InfomationController extends Controller
         //
     }
 
+    //ロゴ画像の変更の関数
+    public function updatelogo(Request $request, $id)
+    {
+        // バリデーション
+        $validator = Validator::make($request->all(), [
+            'logo' => 'required|file|image'
+        ]);
+
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('infomation.logo', Auth::user()->id)
+                ->withInput()
+                ->withErrors($validator);
+        }
+        //リクエストファイルの画像を取得
+        $upload_image = $request->file('logo');
+
+        //画像をpublic直下のuploadsに保存し$pathにパスを取得
+        $path = $upload_image->store('uploads', "public");
+
+        if ($path) {
+        //DBを書き換え
+        $oldpath = Infomation::find($id)->logo_image;
+        if($oldpath !== 'uploads/null.png'){
+                Storage::disk('public')->delete($oldpath);
+        }
+        $result = Infomation::find($id)->update(['logo_image' => $path]);
+        }
+        //profile.showへ移動（現在ログインしているユーザー情報）
+        return redirect()->route('infomation.logo',Auth::user()->id);
+
+    }
+
+
     /**
      * Update the specified resource in storage.
      *

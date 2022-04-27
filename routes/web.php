@@ -77,9 +77,17 @@ Route::resource('post', PostController::class);
 Route::get('/infomation/{infomation}/logo', [InfomationController::class,'logo'])
 ->name('infomation.logo');
 
+//ロゴ画像変更処理
+Route::patch('/infomation/{infomation}/logo', [InfomationController::class,'updatelogo'])
+->name('infomation.updatelogo');
+
 //カバー画像変更画面
 Route::get('/infomation/{infomation}/cover', [InfomationController::class,'cover'])
 ->name('infomation.cover');
+
+//カバー画像変更処理
+Route::patch('/infomation/{infomation}/updatecover', [InfomationController::class,'updatecover'])
+->name('infomation.updatecover');
 
 Route::resource('infomation', InfomationController::class);
 

@@ -24,9 +24,7 @@
     <div class="lg:flex sm:mt-16">
         {{-- dashboard left-side --}}
         <section class="lg:w-1/2 flex flex-col">
-
-            <hr class="mb-6">
-
+            
             <div class="flex justify-around">
                 <!-- 生物ログ-->
                 <a href="{{ route('log.index') }}"
