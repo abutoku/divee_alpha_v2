@@ -18,7 +18,7 @@
 
                 <div class="p-12">
                     {{-- 入力フォーム --}}
-                    <form action="{{ route('profile.coverchange',$infomation->id) }}" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('infomation.updatecover',$infomation->id) }}" method="post" enctype="multipart/form-data">
                         @method('patch')
                         @csrf
                         <div class="flex justify-center">
@@ -27,7 +27,7 @@
                                     class="h-48 w-48 object-cover mb-12 bg-white">
                         </div>
                         {{-- ファイル選択欄 --}}
-                        <input type="file" name="cover_image" id="cover" class="mb-6"><br>
+                        <input type="file" name="cover" id="cover" class="mb-6"><br>
                         {{-- 変更ボタン --}}
                         <x-button>変更</x-button>
                     </form>

@@ -125,9 +125,42 @@ class InfomationController extends Controller
         }
         $result = Infomation::find($id)->update(['logo_image' => $path]);
         }
-        //profile.showへ移動（現在ログインしているユーザー情報）
+        
         return redirect()->route('infomation.logo',Auth::user()->id);
 
+    }
+
+    public function updatecover(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'cover' => 'required|file|image'
+        ]);
+
+        // バリデーション:エラー
+        if ($validator->fails()) {
+            return redirect()
+                ->route('infomation.cover', Auth::user()->id)
+                ->withInput()
+                ->withErrors($validator);
+        }
+
+        //リクエストファイルの画像を取得
+        $upload_image = $request->file('cover');
+
+        //画像をpublic直下のuploadsに保存し$pathにパスを取得
+        $path = $upload_image->store('uploads', "public");
+
+        if ($path) {
+        //DBを書き換え
+        $oldpath = Infomation::find($id)->cover_image;
+        if($oldpath !== 'uploads/cover.jpg'){
+                Storage::disk('public')->delete($oldpath);
+        }
+        $result = Infomation::find($id)->update(['cover_image' => $path]);
+        }
+
+        //profile.showへ移動（現在ログインしているユーザー情報）
+        return redirect()->route('infomation.cover', Auth::user()->id);
     }
 
 

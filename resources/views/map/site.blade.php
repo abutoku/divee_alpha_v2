@@ -82,8 +82,8 @@
 
                             <div class="p-4">
                                 <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
-                                <a href="{{ route('profile.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
-                                    <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
+                                <a href="{{ route('infomation.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
+                                    <img src="{{  Storage::url($log->user->infomation->logo_image)  }}" class="mr-2 w-8 h-8 rounded-full">
                                     <p>{{ $log->user->name }}</p>
                                 </a>
                                 <p>{{ $log->book->fish_name }}</p>
@@ -95,8 +95,8 @@
                     @else
                         <div class="p-4 w-[400px] mb-4  bg-white rounded-lg drop-shadow-md">
                             <p class="text-xs">{{ $log->date->format('Y-m-d') }}</p>
-                            <a href="{{ route('profile.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
-                                <img src="{{  Storage::url($log->user->profile->profile_image)  }}" class="mr-2 w-8 h-8 rounded-full">
+                            <a href="{{ route('infomation.show',$log->user->id) }}" class="flex justify-start items-center mb-4">
+                                <img src="{{  Storage::url($log->user->infomation->logo_image)  }}" class="mr-2 w-8 h-8 rounded-full">
                                 <p>{{ $log->user->name }}</p>
                             </a>
                             <p>{{ $log->book->fish_name }}</p>

@@ -37,7 +37,7 @@
     </x-slot>
 
     @if(session('status'))
-    <div id="flash_message" class="text-green-700 p-3 bg-green-300 rounded mt-16 mb-3 flex justify-center">
+    <div id="flash_message" class="absolute top-2 w-full selection:text-green-700 p-3 bg-green-300 rounded  flex justify-center mt-24">
         {{ session('status') }}
     </div>
     @endif

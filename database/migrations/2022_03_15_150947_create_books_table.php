@@ -17,6 +17,8 @@ class CreateBooksTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->string('fish_name');
+            $table->string('order')->nullable();
+            $table->string('family')->nullable();
             $table->string('info')->nullable();
             $table->string('picture')->nullable();
             $table->timestamps();

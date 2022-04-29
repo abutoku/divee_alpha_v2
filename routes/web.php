@@ -93,7 +93,6 @@ Route::resource('infomation', InfomationController::class);
 
 //-----profile-------------------//
 
-
 //プロフィール設定メニュー一覧
 Route::get('/profile/menu', [ProfileController::class,'menu'])
 ->name('profile.menu');
@@ -131,6 +130,7 @@ Route::resource('log', LogController::class);
 Route::resource('divemap', DivemapController::class);
 
 //-----book-------------------//
+
 //図鑑MEMO更新
 Route::get('book/{book}/memo', [BookController::class,'memo'])
 ->name('book.memo');
