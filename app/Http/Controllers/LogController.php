@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 //Model
 use App\Models\User;
@@ -31,8 +32,7 @@ class LogController extends Controller
      */
     public function index()
     {
-        // Userモデルに定義したmylogs関数を実行する．
-        //結果を$logsに受け取る
+        // Userモデルに定義したmylogs関数を実行
         $logs = User::find(Auth::user()->id)->mylogs;
 
         $sites = Site::all();
@@ -57,7 +57,7 @@ class LogController extends Controller
     {
         $sites = Site::all();
         $divemaps = Divemap::all();
-        //log.create（登録ページ）を表示
+
         return view('log.create', [
             'sites' => $sites,
             'divemaps' => $divemaps,
@@ -95,7 +95,8 @@ class LogController extends Controller
         'fish_name' => $request->name,
         'user_id' => Auth::user()->id ]);
 
-        //画像が有り、無し場合の分岐
+
+        //画像が有りの場合
         if($request->image_data !== null) {
 
             $upload_image = $request->file('image_data');
@@ -113,15 +114,15 @@ class LogController extends Controller
                     $book->save();
             }
 
-        } else {
-            // 編集 フォームから送信されてきたデータとユーザIDをマージし，DBにinsertする
-            //Auth::user()->idで現在ログインしているユーザの ID を取得することができる
-            //Auth::user()には他にもデータが入っている
+        } else { //画像無し
+
+            // フォームから送信されてきたデータとユーザIDをマージし
             $data = $request->merge([
                 'user_id' => Auth::user()->id,
                 'book_id' => $book->id ])->all();
         }
 
+        //$dateをDBに保存
         $result = Log::create($data);
 
         //locationを作成
@@ -131,6 +132,28 @@ class LogController extends Controller
         'latitude' => $result->site->latitude,
         'longitude' => $result->site->longitude
         ]);
+
+
+        //bookに目、科が登録されていない場合はAPIへリクエスト
+        if ($book->order == null) {
+            $name = $book->fish_name;
+
+            //APIリクエスト
+            $client = new Client();
+            $response = $client->get("https://odd-tsushima-1917.lolipop.io/api/getfishcategory?name={$name}");
+
+            //情報を受け取り
+            $res = $response->getBody();
+            $res = json_decode($res, true);
+
+            //DBを更新
+            $category = Book::find($book->id)
+                        ->update([
+                            'order' => $res['order'],
+                            'family' => $res['family'],
+                        ]);
+
+        }
 
         // ルーティング「log.index」にリクエスト送信（一覧ページに移動）
         session()->flash('status', '登録が完了しました');
