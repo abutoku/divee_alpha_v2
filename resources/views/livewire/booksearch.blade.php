@@ -7,6 +7,12 @@
                 <div class="flex justify-between items-start sm:items-center">
                     <div class="p-4">
                         <p class="font-bold text-sm sm:text-xl">{{$book->fish_name}}</p>
+                        @if($book->order)
+                            <div class="flex">
+                                <p class="mr-6">{{ $book->order }}</p>
+                                <p>{{ $book->family }}</p>
+                            </div>
+                        @endif
                     </div>
                     @if($book->picture)
                     {{-- 画像がある場合 --}}
