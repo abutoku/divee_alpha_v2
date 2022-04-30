@@ -9,8 +9,8 @@
                         <p class="font-bold text-sm sm:text-xl">{{$book->fish_name}}</p>
                         @if($book->order)
                             <div class="flex">
-                                <p class="mr-6">{{ $book->order }}</p>
-                                <p>{{ $book->family }}</p>
+                                <p class="text-xs sm:text-base mr-6">{{ $book->order }}</p>
+                                <p class="text-xs sm:text-base">{{ $book->family }}</p>
                             </div>
                         @endif
                     </div>
