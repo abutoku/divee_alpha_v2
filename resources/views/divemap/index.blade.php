@@ -12,7 +12,7 @@
 
     {{-- 保存完了の表示 --}}
     @if(session('status'))
-    <div id="flash_message" class="text-green-700 p-3 bg-green-300 rounded mt-16 mb-3 flex justify-center">
+    <div id="flash_message" class="absolute top-4 w-full text-green-700 p-3 bg-green-300 rounded mt-16 mb-3 flex justify-center">
         {{ session('status') }}
     </div>
     @endif

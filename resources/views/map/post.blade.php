@@ -127,7 +127,7 @@
         const info = `
         <p>Tips</p>
         <p class="mb-4 font-bold">${post.title}</P>
-        <a href=/post/${post.id}>詳細へ</a>
+        <a href=/post/${post.id} class="underline">詳細へ</a>
         `;
 
         $('#output').html(info);

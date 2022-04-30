@@ -25,7 +25,7 @@
     {{-- ---------写真表示部分---------------- --}}
     <div class="flex justify-between">
         <div class="flex items-center">
-            <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic" class="rounded-full object-cover h-8 w-8 mr-2">
+            <img src="{{ Storage::url($post->user->infomation->logo_image) }}" alt="profilepic" class="rounded-full object-cover h-8 w-8 mr-2">
             <p class="pt-1 ml-2 font-bold text-sm">{{$post->user->name}}</p>
         </div>
         <div>
@@ -135,7 +135,7 @@
         @foreach ($post->comments()->latest()->get() as $comment)
             <div class="flex justify-between mt-6">
                 <div class="flex justify-start items-center">
-                    <img src="{{ Storage::url( $comment->user->profile->profile_image) }}" class="rounded-full h-8 w-8 mr-2 mb-4">
+                    <img src="{{ Storage::url( $comment->user->infomation->logo_image) }}" class="rounded-full h-8 w-8 mr-2 mb-4">
                     <p>{{ $comment->user->name }}</p>
                 </div>
                 {{-- もしlogのuser_idとログイン中のユーザーのidが一致したら削除ボタンを表示 --}}

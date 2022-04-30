@@ -157,13 +157,13 @@
     </script>
 
     <script>
+    'use strict'
 
     //受け取ったデータをjson化
     const newposts = @json($newposts);
 
     //生物の地図設定
     function initMap() {
-    'use strict'
 
     var target = document.getElementById('target');
     var map;

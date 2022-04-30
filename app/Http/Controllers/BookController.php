@@ -73,6 +73,7 @@ class BookController extends Controller
     {
         $book = Book::find($id);
         $sites = Site::all();
+        $divemaps = Divemap::all();
 
         //ログインユーザー以外の情報は表示しない
         if (Auth::user()->id != $book->user_id) {
@@ -86,6 +87,7 @@ class BookController extends Controller
             'book' => $book,
             'logs' => $logs,
             'sites' => $sites,
+            'divemaps' => $divemaps,
         ]);
     }
 
@@ -184,6 +186,10 @@ class BookController extends Controller
             'book' => $book,
             'val' => $val
         ]);
+    }
+
+    public function selectmap(Request $request){
+        dd($request);
     }
 
 }
