@@ -1,11 +1,3 @@
-<style>
-    #canvas {
-        background-size: cover;
-        background-position: center;
-    }
-
-</style>
-
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
@@ -24,8 +16,7 @@
         </a>
     </x-slot>
 
-
-
+    
     <!--wrapper-->
     <div class="flex justify-center mt-12">
         <div class="px-2 flex justify-center w-[400px] md:w-[900px]">
@@ -121,8 +112,7 @@
 
     const divemaps = @json($divemaps);
 
-    console.log(divemaps);
-
+    // 背景の変更
     $('#map').on('change',function () {
         const val = $('#map').val();
         const target = divemaps.find(x => x.id == val);
@@ -131,7 +121,6 @@
     });
 
     //canvasについての記述
-    
     let posiX = 0; //一つ前の座標を代入するための変数
     let posiY = 0; //一つ前の座標を代入するための変数
 

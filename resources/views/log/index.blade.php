@@ -138,16 +138,16 @@
                     </div>
             {{-- サムネイル画像が無い場合 --}}
                 @else
-                    <div class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5 p-2 sm:p-4">
+                    <div class="flex flex-col bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5  p-2 sm:p-4">
                         <div class="flex justify-between">
                             {{-- テキスト部分 --}}
                             <div>
                                 <div class="mt-4 text-xs sm:text-base">{{  $log->date->format('Y-m-d') }}</div>
-                                <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
+                                <div class="font-bold text-base sm:text-lg">{{  $log->book->fish_name }}</div>
                                 <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                 <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
                                 <div class="text-sm sm:text-base mb-2 sm:mb-8">水温 : {{  $log->temp }}℃</div>
-                                <a href="{{ route('log.show',$log->id) }}">詳細へ</a>
+                                <a href="{{ route('log.show',$log->id) }}" class="underline">詳細へ</a>
                             </div>
                             {{-- 縦三点リーダー --}}
                             <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end">

@@ -30,7 +30,7 @@
                 <div class="flex justify-between">
                     <div class="p-4">
                         <div class="flex items-center mb-4">
-                            <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic"
+                            <img src="{{ Storage::url($post->user->infomation->logo_image) }}" alt="profilepic"
                                 class="rounded-full h-8 w-8 object-cover mr-2">
                             <div>{{ $post->user->name }}</div>
                         </div>
@@ -46,7 +46,7 @@
             <a href="{{ route('post.show',$post->id) }}"
                 class="bg-white drop-shadow-md rounded-lg w-[350px] sm:w-[600px] h-36 my-5 p-4 overflow-hidden">
                 <div class="flex items-center mb-4">
-                    <img src="{{ Storage::url($post->user->profile->profile_image) }}" alt="profilepic"
+                    <img src="{{ Storage::url($post->user->infomation->logo_image) }}" alt="profilepic"
                         class="rounded-full h-8 w-8 object-cover mr-2">
                     <div>{{ $post->user->name }}</div>
                 </div>

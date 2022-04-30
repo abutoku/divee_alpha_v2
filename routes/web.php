@@ -146,6 +146,9 @@ Route::post('book/{book}/change', [BookController::class,'change'])
 Route::post('book/search', [BookController::class,'search'])
 ->name('book.search');
 
+Route::post('book/selectmap', [BookController::class,'selectmap'])
+->name('book.selectmap');
+
 Route::resource('book', BookController::class);
 
 //-----site------------------//
