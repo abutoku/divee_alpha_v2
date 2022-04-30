@@ -68,15 +68,64 @@
         </a>
 
     {{-- 検索欄 --}}
-        <section class="flex justify-start items-center mt-2">
-            <form action="{{ route('log.search') }}" method="post">
-                @csrf
-                <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
-                    <option disabled selected value>ポイントを選択</option>
-                    @foreach ($sites as $site)
-                    <option value="{{ $site->id }}">{{ $site->site_name }}</option>
-                    @endforeach
-                </select>
+        <section x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="mt-8">
+            <x-button @click="open = ! open">
+                <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                </svg>条件を絞る
+            </x-button>
+            {{-- モーダル部分 --}}
+            <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20" style="background-color: rgba(0,0,0,.5);"
+                x-show="open" x-cloak>
+
+                <div class="text-left bg-white w-[400px] h-[600px] p-6 overflow-y-auto" @click.away="open = false">
+                    <section class="flex justify-center mt-2">
+                        <form action="{{ route('log.search') }}" method="post" class="flex flex-col items-start mt-2">
+                            <p class="font-bold text-lg mb-8">条件を絞る</p>
+                            @csrf
+                            <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
+                                <option disabled selected value>ポイントを選択</option>
+                                @foreach ($sites as $site)
+                                <option value="{{ $site->id }}">{{ $site->site_name }}</option>
+                                @endforeach
+                            </select>
+
+                            <select class="rounded-lg border-2 border-divenavy my-2">
+                                <option disabled selected value>月を選択</option>
+                                <option>1月</option>
+                                <option>2月</option>
+                                <option>3月</option>
+                                <option>4月</option>
+                                <option>5月</option>
+                                <option>6月</option>
+                                <option>7月</option>
+                                <option>8月</option>
+                                <option>9月</option>
+                                <option>10月</option>
+                                <option>11月</option>
+                                <option>12月</option>
+                            </select>
+
+                            <p>水深</p>
+                            <div>
+                                <input type="number" class="w-1/2 rounded-lg border-2"> M
+                            </div>
+
+                            <p>水温</p>
+                            <div>
+                                <input type="number" class="w-1/2 rounded-lg border-2">℃
+                            </div>
+
+
+                            <x-button class="mt-12">検索</x-button>
+                        </form>
+                    </section>
+
+                </div>
+            </div>
+
+        </section>
 
                 <!--工事中-->
                 {{-- <select name="site" class="rounded-lg border-2 border-divenavy my-2">
@@ -87,10 +136,6 @@
                     @endforeach
 
                 </select> --}}
-
-                <x-button>検索</x-button>
-            </form>
-        </section>
 
     {{-- 表示部分 --}}
         <section class="mt-2">
@@ -108,7 +153,7 @@
                                     <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                     <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
                                     <div class="text-sm sm:text-base mb-2 sm:mb-8">水温 : {{  $log->temp }}℃</div>
-                                    <a href="{{ route('log.show',$log->id) }}">詳細へ</a>
+                                    <a href="{{ route('log.show',$log->id) }}" class="text-sm sm:text-base underline">詳細へ</a>
                                 </div>
                                 {{-- 縦三点リーダー --}}
                                 <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end">
@@ -147,7 +192,7 @@
                                 <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                 <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
                                 <div class="text-sm sm:text-base mb-2 sm:mb-8">水温 : {{  $log->temp }}℃</div>
-                                <a href="{{ route('log.show',$log->id) }}" class="underline">詳細へ</a>
+                                <a href="{{ route('log.show',$log->id) }}" class="text-sm sm:text-base underline">詳細へ</a>
                             </div>
                             {{-- 縦三点リーダー --}}
                             <div x-data="{ open:false }" @click.away="open = false" @close.stop="open = false" class="flex flex-col items-end">
