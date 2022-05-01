@@ -110,9 +110,9 @@
     </section>
 
     {{-- -----ログ表示部分----- --}}
-    <div class="md:flex md:justify-center">
+    <div class="md:flex justify-around">
 
-        <div class="mt-10 flex justify-center">
+        <div class="mt-10 flex justify-center h-[300px]">
             <canvas id="canvas" width="400" height="300" style="border:1px solid #000; background-color:white;" class="mt-4"></canvas>
         </div>
 
