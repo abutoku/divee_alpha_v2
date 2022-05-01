@@ -7,9 +7,11 @@
                 <div class="flex justify-between items-start sm:items-center">
                     <div class="p-4">
                         <p class="font-bold text-sm sm:text-xl">{{$book->fish_name}}</p>
-                        @if($book->order)
+                        @if($book->family)
                             <div class="flex">
+                                @if($book->order)
                                 <p class="text-xs sm:text-base mr-6">{{ $book->order }}</p>
+                                @endif
                                 <p class="text-xs sm:text-base">{{ $book->family }}</p>
                             </div>
                         @endif

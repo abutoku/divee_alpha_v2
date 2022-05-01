@@ -614,6 +614,9 @@ select {
 .left-\[350px\] {
   left: 350px;
 }
+.right-12 {
+  right: 3rem;
+}
 .top-4 {
   top: 1rem;
 }
@@ -646,18 +649,6 @@ select {
 }
 .bottom-0 {
   bottom: 0px;
-}
-.right-4 {
-  right: 1rem;
-}
-.left-2 {
-  left: 0.5rem;
-}
-.right-10 {
-  right: 2.5rem;
-}
-.right-12 {
-  right: 3rem;
 }
 .z-0 {
   z-index: 0;
@@ -924,8 +915,8 @@ select {
 .h-\[600px\] {
   height: 600px;
 }
-.h-\[500px\] {
-  height: 500px;
+.h-\[300\] {
+  height: 300;
 }
 .min-h-\[1000px\] {
   min-height: 1000px;
@@ -1984,14 +1975,14 @@ select {
     line-height: 1.75rem;
   }
 
-  .sm\:text-6xl {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .sm\:text-lg {
