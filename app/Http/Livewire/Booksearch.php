@@ -11,14 +11,6 @@ class Booksearch extends Component
 
     public $searchWord;
 
-    // public function mount()
-    // {
-    //     $books = Book::where('user_id', Auth::user()->id )
-    //     ->orderBy('fish_name', 'asc')->get();
-    //     return view('livewire.booksearch',
-    //         ['books' => $books]);
-    // }
-
 
     public function render()
     {
@@ -29,5 +21,6 @@ class Booksearch extends Component
         return view('livewire.booksearch',
             ['books' => $books]);
     }
+
 
 }

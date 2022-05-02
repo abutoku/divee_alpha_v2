@@ -4,3 +4,26 @@
     background-size: cover;
     background-position: center;
 }
+
+/* .button {
+        border-radius: 10px;
+        position: fixed;
+        right: 10;
+        bottom: 10;
+        font-size: 30px;
+        color: #fff;
+        background: #3E5155;
+        padding: 10px;
+        cursor: pointer;
+        transition: .3s; */
+
+        /*デフォルトで非表示にする*/
+        /* opacity: 0;
+        visibility: hidden;
+    } */
+
+    /*このクラスが付与されると表示する*/
+    /* .active {
+        opacity: 1;
+        visibility: visible;
+    } */

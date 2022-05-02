@@ -239,19 +239,43 @@ class LogController extends Controller
 
         //log_tableからidが一致しているものを削除
         $result = Log::find($id)->delete();
-        //log.indexへ戻る
         return redirect()->route('log.index');
     }
 
     public function search (Request $request) {
 
         $sites = Site::all();
-        $logs = Log::where('user_id',Auth::user()->id)
-                    ->where('site_id',$request->site_id)->get();
+        $logs = Log::where('user_id',Auth::user()->id)->get();
+
+        //フィルター検索
+        if(isset($request->month)){
+            $logs = Log::whereMonth('date',$request->month)->get();
+        }
+
+        if(isset($request->site_id)){
+            $logs = $logs->where('site_id',$request->site_id);
+        }
+
+        if(isset($request->mindepth) && isset($request->maxdepth)){
+            $logs = $logs->where('depth','>=',$request->mindepth)->where('depth','<=',$request->maxdepth);
+        } elseif(isset($request->mindepth)){
+            $logs = $logs->where('depth','>=',$request->mindepth);
+        } elseif(isset($request->maxdepth)){
+            $logs = $logs->where('depth','<=',$request->maxdepth);
+        }
+
+        if(isset($request->mintemp) && isset($request->maxtemp)){
+            $logs = $logs->where('temp','>=',$request->mintemp)->where('temp','<=',$request->maxtemp);
+        } elseif(isset($request->mintemp)){
+            $logs = $logs->where('temp','>=',$request->mintemp);
+        } elseif(isset($request->maxtemp)){
+            $logs = $logs->where('temp','<=',$request->maxtemp);
+        }
 
         return view('log.index', [
             'logs' => $logs,
             'sites' => $sites,
         ]);
+        
     }
 }

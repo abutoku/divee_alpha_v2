@@ -105,7 +105,6 @@
                 </option>
             </select>
             <input type="hidden" name="book_id" value="{{ $book->id }}">
-            {{-- <input type="text" class="rounded-lg border-2 border-divenavy" placeholder="日時検索"> --}}
 
     </section>
 

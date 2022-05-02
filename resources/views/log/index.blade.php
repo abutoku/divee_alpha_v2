@@ -1,16 +1,20 @@
 <style>
-
     .button {
-        border-radius: 10px;
+        border-radius: 50%;
+        width:60px;
+        height:60px;
         position: fixed;
         right: 10;
         bottom: 10;
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         background: #3E5155;
         padding: 10px;
         cursor: pointer;
         transition: .3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         /*デフォルトで非表示にする*/
         opacity: 0;
@@ -45,7 +49,7 @@
     <!--wrapper-->
     {{-- 作成ボタン --}}
     <div class="pt-16">
-        <a href="{{ route('log.create') }}"><x-button>
+        <a href="{{ route('log.create') }}" class="mr-4"><x-button>
             <svg class="h-5 w-5 mr-2 text-white" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
             stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" />
@@ -69,12 +73,12 @@
 
     {{-- 検索欄 --}}
         <section x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="mt-8">
-            <x-button @click="open = ! open">
+            <x-btmcus @click="open = ! open">
                 <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                     stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
                 </svg>条件を絞る
-            </x-button>
+            </x-btmcus>
             {{-- モーダル部分 --}}
             <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20" style="background-color: rgba(0,0,0,.5);"
                 x-show="open" x-cloak>
@@ -91,30 +95,32 @@
                                 @endforeach
                             </select>
 
-                            <select class="rounded-lg border-2 border-divenavy my-2">
+                            <select name="month" class="rounded-lg border-2 border-divenavy my-2">
                                 <option disabled selected value>月を選択</option>
-                                <option>1月</option>
-                                <option>2月</option>
-                                <option>3月</option>
-                                <option>4月</option>
-                                <option>5月</option>
-                                <option>6月</option>
-                                <option>7月</option>
-                                <option>8月</option>
-                                <option>9月</option>
-                                <option>10月</option>
-                                <option>11月</option>
-                                <option>12月</option>
+                                <option value=01>1月</option>
+                                <option value=02>2月</option>
+                                <option value=03>3月</option>
+                                <option value=04>4月</option>
+                                <option value=05>5月</option>
+                                <option value=06>6月</option>
+                                <option value=07>7月</option>
+                                <option value=08>8月</option>
+                                <option value=09>9月</option>
+                                <option value=10>10月</option>
+                                <option value=11>11月</option>
+                                <option value=12>12月</option>
                             </select>
 
                             <p>水深</p>
                             <div>
-                                <input type="number" class="w-1/2 rounded-lg border-2"> M
+                                <input type="number" name="mindepth" class="w-[80px] rounded-lg border-2"> 〜
+                                <input type="number" name="maxdepth" class="w-[80px] rounded-lg border-2"> M
                             </div>
 
                             <p>水温</p>
                             <div>
-                                <input type="number" class="w-1/2 rounded-lg border-2">℃
+                                <input type="number" name="mintemp" class="w-[80px] rounded-lg border-2"> 〜
+                                <input type="number" name="maxtemp" class="w-[80px] rounded-lg border-2">℃
                             </div>
 
 
@@ -124,18 +130,7 @@
 
                 </div>
             </div>
-
         </section>
-
-                <!--工事中-->
-                {{-- <select name="site" class="rounded-lg border-2 border-divenavy my-2">
-
-                    <option disabled selected value>月を選択</option>
-                    @foreach ($dates->unique('date') as $date)
-                    <option value="{{ $date }}">{{ $date->date->format('Y-m') }}</option>
-                    @endforeach
-
-                </select> --}}
 
     {{-- 表示部分 --}}
         <section class="mt-2">
