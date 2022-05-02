@@ -136,7 +136,7 @@ class BookController extends Controller
         //ログインユーザー以外の情報は表示しない
         if(Auth::user()->id != $book->user_id) {
         return abort('404');
-      }
+    }
 
         return view('book.memo', [
             'book' => $book,
@@ -172,19 +172,44 @@ class BookController extends Controller
     public function search(Request $request)
     {
         $sites = Site::all();
-
-        $logs = Log::where('user_id',Auth::user()->id)
-                    ->where('site_id',$request->site_id)->get();
-
+        $divemaps = Divemap::all();
         $book = Book::find($request->book_id);
 
-        $val = Site::find($request->site_id);
+        $logs = Log::where('user_id',Auth::user()->id)
+                    ->where('book_id',$request->book_id)->get();
+
+        //フィルター検索
+        if(isset($request->month)){
+            $logs = Log::whereMonth('date',$request->month)
+            ->where('book_id',$request->book_id)->get();
+        }
+
+        if(isset($request->site_id)){
+            $logs = $logs->where('site_id',$request->site_id);
+        }
+
+        if(isset($request->mindepth) && isset($request->maxdepth)){
+            $logs = $logs->where('depth','>=',$request->mindepth)->where('depth','<=',$request->maxdepth);
+        } elseif(isset($request->mindepth)){
+            $logs = $logs->where('depth','>=',$request->mindepth);
+        } elseif(isset($request->maxdepth)){
+            $logs = $logs->where('depth','<=',$request->maxdepth);
+        }
+
+        if(isset($request->mintemp) && isset($request->maxtemp)){
+            $logs = $logs->where('temp','>=',$request->mintemp)->where('temp','<=',$request->maxtemp);
+        } elseif(isset($request->mintemp)){
+            $logs = $logs->where('temp','>=',$request->mintemp);
+        } elseif(isset($request->maxtemp)){
+            $logs = $logs->where('temp','<=',$request->maxtemp);
+        }
+
 
         return view('book.show', [
-            'logs' => $logs,
             'sites' => $sites,
+            'divemaps' => $divemaps,
             'book' => $book,
-            'val' => $val
+            'logs' => $logs,
         ]);
     }
 
