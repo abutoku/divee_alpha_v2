@@ -58,7 +58,7 @@
                         <p class="text-xs lg:text-base">{{ $book->family }}</p>
                     </div>
                 @endif
-                <section class="hidden lg:block w-11/12">
+                <section class="w-11/12">
                     {{-- 説明文 --}}
                     @if($book->info)
                         <div class="mt-4 ml-2 p-4 rounded-lg h-56 border bg-slate-50">
@@ -77,24 +77,67 @@
     </section>
 
     {{-- 検索欄 --}}
-    {{-- <section class="mt-12 flex flex-col w-[300px]">
-        <form action="{{ route('book.search') }}" method="post" class="flex justify-start items-center">
-            @csrf
-            <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
-                <option>
-                <option disabled selected value>ポイントを選択</option>
-                @foreach ($sites as $site)
-                <option value="{{ $site->id }}">{{ $site->site_name }}</option>
-                @endforeach
-                </option>
-            </select>
-            <input type="hidden" name="book_id" value="{{ $book->id }}">
-            <x-button class="ml-4">検索</x-button>
-        </form>
-    </section> --}}
+    <section x-data="{ open: false }" @click.away="open = false" @close.stop="open = false" class="mt-8">
+        <x-btmcus @click="open = ! open">
+            <svg class="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+            </svg>条件を絞る
+        </x-btmcus>
+        {{-- モーダル部分 --}}
+        <div class="inset-0 w-full h-full fixed flex items-center justify-center z-20"
+            style="background-color: rgba(0,0,0,.5);" x-show="open" x-cloak>
 
+            <div class="text-left bg-white w-[400px] h-[600px] p-6 overflow-y-auto" @click.away="open = false">
+                <section class="flex justify-center mt-2">
+                    <form action="{{ route('book.search') }}" method="post" class="flex flex-col items-start mt-2">
+                        <p class="font-bold text-lg mb-8">条件を絞る</p>
+                        @csrf
+                        <select name="site_id" class="rounded-lg border-2 border-divenavy my-2">
+                            <option disabled selected value>ポイントを選択</option>
+                            @foreach ($sites as $site)
+                            <option value="{{ $site->id }}">{{ $site->site_name }}</option>
+                            @endforeach
+                        </select>
+
+                        <select name="month" class="rounded-lg border-2 border-divenavy my-2">
+                            <option disabled selected value>月を選択</option>
+                            <option value=01>1月</option>
+                            <option value=02>2月</option>
+                            <option value=03>3月</option>
+                            <option value=04>4月</option>
+                            <option value=05>5月</option>
+                            <option value=06>6月</option>
+                            <option value=07>7月</option>
+                            <option value=08>8月</option>
+                            <option value=09>9月</option>
+                            <option value=10>10月</option>
+                            <option value=11>11月</option>
+                            <option value=12>12月</option>
+                        </select>
+
+                        <p>水深</p>
+                        <div>
+                            <input type="number" name="mindepth" class="w-[80px] rounded-lg border-2"> 〜
+                            <input type="number" name="maxdepth" class="w-[80px] rounded-lg border-2"> M
+                        </div>
+
+                        <p>水温</p>
+                        <div>
+                            <input type="number" name="mintemp" class="w-[80px] rounded-lg border-2"> 〜
+                            <input type="number" name="maxtemp" class="w-[80px] rounded-lg border-2">℃
+                        </div>
+
+                        <input type="hidden" name="book_id" value="{{ $book->id }}">
+                        <x-button class="mt-12">検索</x-button>
+                    </form>
+                </section>
+
+            </div>
+        </div>
+    </section>
     {{-- 地図選択 --}}
-    <section class="flex flex-col w-[300px] mt-12">
+    <section class="flex flex-col w-[300px] mt-2">
 
             <select id="map" name="site_id" class="rounded-lg border-2 border-divenavy my-2">
                 <option>
