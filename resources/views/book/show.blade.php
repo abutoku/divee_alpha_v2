@@ -52,12 +52,16 @@
             <div class="w-1/2 sm:w-1/3 flex flex-col items-center">
                 {{-- 生物名 --}}
                 <h1 class="mt-8  text-lg md:text-3xl font-bold">{{ $book->fish_name }}</h1>
-                @if($book->order)
-                    <div class="flex">
+                <div class="flex">
+                    @if($book->order)
                         <p class="text-xs lg:text-base mr-6">{{ $book->order }}</p>
+                    @endif
+                    @if($book->family)
                         <p class="text-xs lg:text-base">{{ $book->family }}</p>
-                    </div>
-                @endif
+                    @endif
+                </div>
+
+
                 <section class="w-11/12">
                     {{-- 説明文 --}}
                     @if($book->info)
