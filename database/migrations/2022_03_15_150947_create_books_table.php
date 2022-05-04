@@ -19,6 +19,7 @@ class CreateBooksTable extends Migration
             $table->string('fish_name');
             $table->string('order')->nullable();
             $table->string('family')->nullable();
+            $table->integer('rare')->default(3);
             $table->string('info')->nullable();
             $table->string('picture')->nullable();
             $table->timestamps();
