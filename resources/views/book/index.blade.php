@@ -1,15 +1,20 @@
 <style>
     .button {
-        border-radius: 10px;
+        border-radius: 50%;
+        width:60px;
+        height:60px;
         position: fixed;
         right: 10;
         bottom: 10;
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         background: #3E5155;
         padding: 10px;
         cursor: pointer;
         transition: .3s;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         /*デフォルトで非表示にする*/
         opacity: 0;
