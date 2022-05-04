@@ -74,7 +74,7 @@
     {{-- グラフ表示部分 --}}
     <section class="flex justify-center flex-col items-center">
         <p>水温グラフ</p>
-        <div class="w-[480px] sm:w-[600px] h-[350px] bg-slate-50 border-2 rounded-lg border-divenavy">
+        <div class="w-[400px] h-[250px] sm:w-[600px] sm:h-[350px] bg-slate-50 border-2 rounded-lg border-divenavy">
             <canvas id="my_chart"></canvas>
         </div>
     </section>

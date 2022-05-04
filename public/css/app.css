@@ -915,6 +915,9 @@ select {
 .h-\[600px\] {
   height: 600px;
 }
+.h-\[250px\] {
+  height: 250px;
+}
 .min-h-\[1000px\] {
   min-height: 1000px;
 }
@@ -1004,6 +1007,15 @@ select {
 }
 .w-10 {
   width: 2.5rem;
+}
+.w-\[380px\] {
+  width: 380px;
+}
+.w-\[0px\] {
+  width: 0px;
+}
+.w-\[30px\] {
+  width: 30px;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -1885,6 +1897,10 @@ select {
 
   .sm\:h-60 {
     height: 15rem;
+  }
+
+  .sm\:h-\[350px\] {
+    height: 350px;
   }
 
   .sm\:w-\[600px\] {
