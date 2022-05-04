@@ -999,17 +999,11 @@ select {
 .w-\[480px\] {
   width: 480px;
 }
-.w-\[30px\] {
-  width: 30px;
+.w-\[80px\] {
+  width: 80px;
 }
 .w-10 {
   width: 2.5rem;
-}
-.w-\[50px\] {
-  width: 50px;
-}
-.w-\[80px\] {
-  width: 80px;
 }
 .max-w-7xl {
   max-width: 80rem;
@@ -2086,8 +2080,8 @@ select {
     width: 91.666667%;
   }
 
-  .lg\:w-\[800px\] {
-    width: 800px;
+  .lg\:w-\[600px\] {
+    width: 600px;
   }
 
   .lg\:justify-around {

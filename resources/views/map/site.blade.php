@@ -6,7 +6,7 @@
         position: fixed;
         right: 10;
         bottom: 10;
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         background: #3E5155;
         padding: 10px;
@@ -76,7 +76,7 @@
         <div class="lg:flex lg:justify-around w-full">
             <!-- 地図 -->
             <section class="flex justify-center">
-                <div id="target" class="w-[500px] h-[400px] sm:w-[1200px] lg:w-[800px] sm:h-[600px]"></div>
+                <div id="target" class="w-[500px] h-[400px] lg:w-[600px] lg:h-400px]"></div>
             </section>
             <!-- 情報表示 -->
             <section class="flex justify-center mt-12 lg:mt-0">
