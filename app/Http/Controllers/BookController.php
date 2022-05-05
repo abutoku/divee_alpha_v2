@@ -81,7 +81,7 @@ class BookController extends Controller
         }
 
         //logからbook_idが一致しているものを取得
-        $logs = Log::where('book_id',$id)->get();
+        $logs = Log::where('book_id',$id)->orderBy('date','desc')->get();
 
         return view('book.show', [
             'book' => $book,
@@ -176,12 +176,14 @@ class BookController extends Controller
         $book = Book::find($request->book_id);
 
         $logs = Log::where('user_id',Auth::user()->id)
-                    ->where('book_id',$request->book_id)->get();
+                    ->where('book_id',$request->book_id)
+                    ->orderBy('date','desc')->get();
 
         //フィルター検索
         if(isset($request->month)){
             $logs = Log::whereMonth('date',$request->month)
-            ->where('book_id',$request->book_id)->get();
+            ->where('book_id',$request->book_id)
+            ->orderBy('date','desc')->get();
         }
 
         if(isset($request->site_id)){

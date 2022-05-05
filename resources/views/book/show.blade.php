@@ -63,31 +63,31 @@
 
                 <div class="flex mt-4">
                     @if($book->rare >= 0)
-                    <svg class="h-6 w-6 text-red-500 mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
+                    <svg class="h-6 w-6 text-red-500 sm:mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                     @endif
                     @if($book->rare >= 2)
-                    <svg class="h-6 w-6 text-red-500 mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
+                    <svg class="h-6 w-6 text-red-500 sm:mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                     @endif
                     @if($book->rare >= 3)
-                    <svg class="h-6 w-6 text-red-500 mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
+                    <svg class="h-6 w-6 text-red-500 sm:mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                     @endif
                     @if($book->rare >= 4)
-                    <svg class="h-6 w-6 text-red-500 mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
+                    <svg class="h-6 w-6 text-red-500 sm:mr-2" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
                     @endif
                     @if($book->rare >= 5)
-                    <svg class="h-6 w-6 text-red-500" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
+                    <svg class="h-6 w-6 text-red-500 " viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
                     </svg>
