@@ -245,11 +245,13 @@ class LogController extends Controller
     public function search (Request $request) {
 
         $sites = Site::all();
-        $logs = Log::where('user_id',Auth::user()->id)->get();
+        $logs = Log::where('user_id',Auth::user()->id)
+                    ->orderBy('date', 'desc')->get();
 
         //フィルター検索
         if(isset($request->month)){
-            $logs = Log::whereMonth('date',$request->month)->get();
+            $logs = Log::whereMonth('date',$request->month)
+                    ->orderBy('date', 'desc')->get();
         }
 
         if(isset($request->site_id)){
@@ -276,6 +278,6 @@ class LogController extends Controller
             'logs' => $logs,
             'sites' => $sites,
         ]);
-        
+
     }
 }
