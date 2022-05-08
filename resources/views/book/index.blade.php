@@ -5,7 +5,7 @@
         height:60px;
         position: fixed;
         right: 10;
-        bottom: 10;
+        bottom: 50;
         font-size: 20px;
         color: #fff;
         background: #3E5155;
