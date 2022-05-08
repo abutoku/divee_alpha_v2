@@ -16,7 +16,7 @@
         </a>
     </x-slot>
 
-    
+
     <!--wrapper-->
     <div class="flex justify-center mt-12">
         <div class="px-2 flex justify-center w-[400px] md:w-[900px]">
@@ -25,7 +25,7 @@
 
                 <div class="md:flex md:w-full">
                     {{-- 入力欄 --}}
-                    <div class="md:w-1/2">
+                    <div class="pl-10 md:w-1/2">
                         {{-- 日付 --}}
                         <div>
                             <div id='date' class="pr-8">日付</div>
@@ -69,15 +69,15 @@
 
                         <div class="w-[250px] sm:w-[300px]">
                             {{-- ファイル選択欄 --}}
-                            <input type="file" name="image_data" id="log_image" class="my-6">
+                            <input type="file" name="image_data" id="log_image" class="pl-8 my-6">
                             <div class="flex justify-center">
                                 {{-- プレビュー表示場所 --}}
                                 <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_pic" class="mb-4 h-48 object-cover" >
                             </div>
                         </div>
                         <div id="canvas_contents">
-                            <p>地図を選択</p>
-                            <select name="divemap_id" id="map" class="rounded-lg border-2 border-divenavy">
+                            <p class="pl-8 sm:pl-0">地図を選択</p>
+                            <select name="divemap_id" id="map" class="rounded-lg border-2 border-divenavy ml-8 sm:ml-0">
                                 <option disabled selected value>マップを選択</option>
                                 @foreach ($divemaps as $divemap)
                                     <option value="{{ $divemap->id }}">{{ $divemap->map_name }}</option>
@@ -89,7 +89,7 @@
                             <input type="hidden" id="point_y" name="point_y">
                         </div><!-- canvas入力画面ここまで -->
 
-                        <div id="clear_btn" class="mt-4 p-2 flex justify-center items-center bg-divenavy text-sm font-bold text-white w-36 rounded-lg cursor-pointer">MAPをクリア</div>
+                        <div id="clear_btn" class="mt-4 p-2 flex justify-center items-center bg-divenavy text-sm font-bold text-white w-36 rounded-lg cursor-pointer ml-8 sm:ml-0">MAPをクリア</div>
                     </div>
                     {{-- 画像登録エリアここまで --}}
                 </div>
@@ -97,7 +97,7 @@
 
 
                 {{-- 登録ボタン --}}
-                <x-button class="my-8">登録終了</x-button><br>
+                <x-button class="my-8 ml-8">登録終了</x-button><br>
             </form>
         </div>
         {{-- ログ一覧に戻るボタン --}}

@@ -54,7 +54,7 @@
                 <h1 class="mt-8  text-lg md:text-3xl font-bold">{{ $book->fish_name }}</h1>
                 <div class="flex">
                     @if($book->order)
-                        <p class="text-xs lg:text-base mr-6">{{ $book->order }}</p>
+                        <p class="text-xs lg:text-base mr-2 md:mr-6">{{ $book->order }}</p>
                     @endif
                     @if($book->family)
                         <p class="text-xs lg:text-base">{{ $book->family }}</p>

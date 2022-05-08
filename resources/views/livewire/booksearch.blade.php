@@ -10,7 +10,7 @@
                         @if($book->family)
                             <div class="flex">
                                 @if($book->order)
-                                <p class="text-xs sm:text-base mr-6">{{ $book->order }}</p>
+                                <p class="text-xs sm:text-base mr-2 md:mr-6">{{ $book->order }}</p>
                                 @endif
                                 <p class="text-xs sm:text-base">{{ $book->family }}</p>
                             </div>
