@@ -64,11 +64,6 @@
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">観光スポット</span>
                 </a>
             </div>
-
-
-            <hr class="mb-6">
-
-
         </section>
 
         {{-- dashboard right-side --}}
