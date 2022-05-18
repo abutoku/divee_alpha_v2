@@ -16,7 +16,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Styles -->
+        @if(config('app.env') === 'production')
+        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+        @else
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        @endif
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
