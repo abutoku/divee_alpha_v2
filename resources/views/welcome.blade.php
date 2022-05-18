@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- PWA  -->
+    <meta name="theme-color" content="#015DC6" />
+    <link rel="apple-touch-icon" href="{{ asset('icon_512.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
     <title>Divee</title>
 
     <style>
@@ -150,6 +155,15 @@
 
      </div>
     {{-- 全体ここまで --}}
+
+    <script src="{{ asset('/sw.js') }}"></script>
+    <script>
+        if (!navigator.serviceWorker.controller) {
+            navigator.serviceWorker.register("/sw.js").then(function (reg) {
+                console.log("Service worker has been registered for scope: " + reg.scope);
+            });
+        }
+    </script>
 
     {{-- google map --}}
     <script async defer
