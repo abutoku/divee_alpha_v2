@@ -19,10 +19,11 @@
 
     <!-- tailwind_css -->
     @if(config('app.env') === 'production')
-    <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ secure_asset('css/app.css') }}">
     @else
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     @endif
+    
     <!-- css_file -->
     <link rel="stylesheet" href="{{ url('css/style.css') }}">
     <!-- Scripts -->
