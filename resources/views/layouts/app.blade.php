@@ -7,6 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- PWA  -->
+    <meta name="theme-color" content="#f7f6f5" />
+    <link rel="apple-touch-icon" href="{{ asset('icon_512.png') }}">
+    <link rel="manifest" href="{{ asset('/manifest.json') }}">
+
     <title>Divee</title>
 
     <!-- Fonts -->
@@ -55,7 +60,7 @@
                         <li class="mb-6 pb-2 border-b">ヘルプ</li>
                     </a>
 
-                    
+
 
                 </ul>
                 <!-- ログアウトボタン -->
