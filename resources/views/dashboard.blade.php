@@ -29,18 +29,16 @@
                 <!-- 生物ログ-->
                 <a href="{{ route('log.index') }}"
                     class=" rounded-lg drop-shadow-md w-11/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center"
-                    style="background-image: url('/log.jpg');">
+                    style="background-image: url('/storage/uploads/log.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">生物ログ</span>
                 </a>
             </div>
-
-            <img src="{{ Storage::url('uploads/tide.jpg') }}" class="w-full h-80 object-cover bg-white rounded-lg shadow-xl">
 
             <div class="flex justify-around w-full">
                 <!-- 陸の情報 -->
                 <a href="{{ route('tide.info') }}"
                     class="flex justify-center items-center mb-10 p-6  rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 bg-cover bg-center"
-                    style="background-image: url('storage/uploads/tide.jpg');">
+                    style="background-image: url('/storage/uploads/tide.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">今日の潮</span>
                 </a>
             </div>
@@ -62,7 +60,7 @@
                 <!-- 陸の情報 -->
                 <a href="{{ route('map.post') }}"
                     class="rounded-lg drop-shadow-md w-11/12 h-32 lg:h-40 mb-6 flex justify-center items-center bg-cover bg-center"
-                    style="background-image: url('./storage/uploads/aft.jpg');">
+                    style="background-image: url('/storage/uploads/aft.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">観光スポット</span>
                 </a>
             </div>
