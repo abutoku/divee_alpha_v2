@@ -29,7 +29,7 @@
                 <!-- 生物ログ-->
                 <a href="{{ route('log.index') }}"
                     class=" rounded-lg drop-shadow-md w-11/12  h-32 lg:h-40  mb-6 flex justify-center items-center bg-cover bg-center"
-                    style="background-image: url('./storage/uploads/log.jpg');">
+                    style="background-image: url('log.jpg');">
                     <span class="text-white text-xl font-bold bg-black bg-opacity-50 rounded-lg py-2 px-6">生物ログ</span>
                 </a>
             </div>
