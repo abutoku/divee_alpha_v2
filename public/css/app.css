@@ -668,9 +668,6 @@ select {
 .m-auto {
   margin: auto;
 }
-.m-6 {
-  margin: 1.5rem;
-}
 .my-2 {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
@@ -1001,6 +998,9 @@ select {
 }
 .w-\[80px\] {
   width: 80px;
+}
+.w-\[370px\] {
+  width: 370px;
 }
 .w-10 {
   width: 2.5rem;
@@ -1865,6 +1865,10 @@ select {
     margin-left: 0px;
   }
 
+  .sm\:mt-4 {
+    margin-top: 1rem;
+  }
+
   .sm\:mb-8 {
     margin-bottom: 2rem;
   }
@@ -2022,6 +2026,14 @@ select {
   .sm\:text-lg {
     font-size: 1.125rem;
     line-height: 1.75rem;
+  }
+
+  .file\:sm\:m-6::-webkit-file-upload-button {
+    margin: 1.5rem;
+  }
+
+  .file\:sm\:m-6::file-selector-button {
+    margin: 1.5rem;
   }
 }
 @media (min-width: 768px) {
