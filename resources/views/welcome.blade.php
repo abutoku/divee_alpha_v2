@@ -202,7 +202,7 @@
         position:pin,
         map:map,
         icon : {
-        url: 'storage/uploads/pin01.png',
+        url: 'storage/uploads/default/pin01.png',
         scaledSize: new google.maps.Size(36, 42)
         },
         animation: google.maps.Animation.BOUNCE,

@@ -72,7 +72,7 @@
                             <input type="file" name="image_data" id="log_image" class="pl-8 my-6">
                             <div class="flex justify-center">
                                 {{-- プレビュー表示場所 --}}
-                                <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_pic" class="mb-4 h-48 object-cover" >
+                                <img src="{{ Storage::url('uploads/default/no_image.png') }}" id="demo_pic" class="mb-4 h-48 object-cover" >
                             </div>
                         </div>
                         <div id="canvas_contents">

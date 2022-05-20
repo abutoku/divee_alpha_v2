@@ -18,7 +18,7 @@
         {{-- ファイル選択欄 --}}
         <input type="file" name="picture" id="post_picture" class="mb-12">
         {{-- プレビュー表示場所 --}}
-        <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_picture" class="mb-4 h-48 object-cover">
+        <img src="{{ Storage::url('uploads/default/no_image.png') }}" id="demo_picture" class="mb-4 h-48 object-cover">
         {{-- 登録ボタン --}}
         <x-button class="mb-12">登録</x-button>
 
