@@ -211,7 +211,7 @@
                     </div>
                 @endif
             @empty
-            <p>情報はありません</p>
+            <p class="mt-16">情報はありません</p>
             @endforelse
 
             </div>
