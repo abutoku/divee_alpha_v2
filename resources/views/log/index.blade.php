@@ -138,12 +138,12 @@
             @forelse ($logs as $log)
             {{-- 画像がある場合 --}}
                 @if($log->image)
-                    <div class="flex justify-between bg-white drop-shadow-md rounded-lg w-[400px] sm:w-[650px] h-40 sm:h-60 my-5">
+                    <div class="flex justify-between bg-white drop-shadow-md rounded-lg w-[370px] sm:w-[650px] h-40 sm:h-60 my-5">
                         <div class="p-2 sm:p-4 w-full">
                             <div class="flex justify-between">
                                 {{-- テキスト部分 --}}
                                 <div>
-                                    <div class="mt-4 text-xs sm:text-base">{{  $log->date->format('Y-m-d') }}</div>
+                                    <div class="mt-2 sm:mt-4 text-xs sm:text-base">{{  $log->date->format('Y-m-d') }}</div>
                                     <div class="font-bold text-lg">{{  $log->book->fish_name }}</div>
                                     <div class="text-sm sm:text-base">{{  $log->site->site_name }}</div>
                                     <div class="text-sm sm:text-base">水深 : {{  $log->depth }}M</div>
@@ -165,7 +165,7 @@
                                     <form x-show="open" x-transition action="{{ route('log.destroy',$log->id )}}" method="post" x-cloak>
                                         @method('delete')
                                         @csrf
-                                        <button type="submit" class="m-6 py-2 px-4 border rounded-lg">削除</button>
+                                        <button type="submit" class="mt-2 file:sm:m-6 py-2 px-4 border rounded-lg text-xs sm:taxt-base">削除</button>
                                     </form>
                                 </div>
 
