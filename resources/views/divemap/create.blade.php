@@ -26,7 +26,7 @@
                 <p class="mt-6">地図画像</p>
 
                 <div class="flex justify-center mt-4">
-                    <img src="{{ Storage::url('uploads/no_image.png') }}" id="demo_img" class="h-48 w-48 object-cover bg-white">
+                    <img src="{{ Storage::url('uploads/default/no_image.png') }}" id="demo_img" class="h-48 w-48 object-cover bg-white">
                 </div>
 
                 <input type="file" id="dive_map" name="map_image" class="mt-4">

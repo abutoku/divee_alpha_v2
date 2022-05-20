@@ -15,8 +15,8 @@ class CreateInfomationsTable extends Migration
     {
         Schema::create('infomations', function (Blueprint $table) {
             $table->id();
-            $table->string('logo_image')->default('uploads/null.png');
-            $table->string('cover_image')->default('uploads/cover.jpg');
+            $table->string('logo_image')->default('uploads/default/null.png');
+            $table->string('cover_image')->default('uploads/default/cover.jpg');
             $table->string('shop_url')->nullable();
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

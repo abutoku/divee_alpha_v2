@@ -95,7 +95,7 @@
             map:map,
             title:'Click me!',
             icon : {
-            url: '../storage/uploads/pin03.png',
+            url: '../storage/uploads/default/pin03.png',
             scaledSize: new google.maps.Size(36, 36)
             },
             animation: google.maps.Animation.BOUNCE,
