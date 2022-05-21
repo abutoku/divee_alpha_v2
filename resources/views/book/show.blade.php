@@ -286,7 +286,7 @@
         const target = divemaps.find(x => x.id == val);
         console.log(target);
         // 背景を変える
-        $('#canvas').css(`background-image`,`url(../storage/${target.image})`);
+        $('#canvas').css(`background-image`,`url(/storage/${target.image})`);
 
 
         //divemap_idが一致しているものがあれば丸を描画

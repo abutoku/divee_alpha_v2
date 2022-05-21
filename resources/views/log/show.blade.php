@@ -60,7 +60,7 @@
     const map = @json($map);
 
 
-    $('#canvas').css(`background-image`,`url(../storage/${map.image})`);
+    $('#canvas').css(`background-image`,`url(/storage/${map.image})`);
 
     //canvasについての記述
     const can = $('#canvas')[0]; //キャンバスそのものを変数
