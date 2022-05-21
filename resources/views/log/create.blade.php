@@ -93,7 +93,7 @@
                                 @endforeach
                             </select>
 
-                            <canvas id="canvas" width="400" height="300" style="border:1px solid #000;" class="mt-4"></canvas>
+                            <canvas id="canvas" width="380" height="300" style="border:1px solid #000;" class="mt-4"></canvas>
                             <input type="hidden" id="point_x" name="point_x">
                             <input type="hidden" id="point_y" name="point_y">
                         </div><!-- canvas入力画面ここまで -->
