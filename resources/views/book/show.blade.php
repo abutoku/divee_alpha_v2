@@ -1,3 +1,11 @@
+<style>
+    /* canvas共通 */
+    #canvas {
+        background-size: cover;
+        background-position: center;
+    }
+</style>
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
@@ -192,7 +200,7 @@
     <div class="md:flex justify-around">
 
         <div class="mt-10 flex justify-center h-[300px]">
-            <canvas id="canvas" width="400" height="300" style="border:1px solid #000; background-color:white;" class="mt-4"></canvas>
+            <canvas id="canvas" width="380" height="300" style="border:1px solid #000; background-color:white;" class="mt-4"></canvas>
         </div>
 
         <section class="mt-12 lg:w-1/2">
