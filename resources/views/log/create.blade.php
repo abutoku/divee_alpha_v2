@@ -1,3 +1,12 @@
+<style>
+    /* canvas共通 */
+    #canvas {
+    background-size: cover;
+    background-position: center;
+    }
+
+</style>
+
 <x-app-layout>
     {{-- ヘッダーロゴ部分 --}}
     <x-slot name="iconLeft">
