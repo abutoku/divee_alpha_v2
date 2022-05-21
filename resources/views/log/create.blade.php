@@ -117,7 +117,7 @@
         const val = $('#map').val();
         const target = divemaps.find(x => x.id == val);
         console.log(target);
-        $('#canvas').css(`background-image`,`url(../storage/${target.image})`);
+        $('#canvas').css(`background-image`,`url(/storage/${target.image})`);
     });
 
     //canvasについての記述
