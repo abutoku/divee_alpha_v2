@@ -136,9 +136,9 @@
                         </a>
                     </div>
                     {{-- 新規登録リンク --}}
-                    <div class="sigin-in">
+                    {{-- <div class="sigin-in">
                         <a href="{{ route('register') }}">新規登録はこちら</a>
-                    </div>
+                    </div> --}}
                     @endauth
                 </div>
 
