@@ -38,7 +38,7 @@ class SiteSeeder extends Seeder
         ]);
 
         \App\Models\Site::create([
-            'site_name' => '唐津 家康ポイント',
+            'site_name' => '呼子 家康ポイント',
             'latitude' => 33.53762676305207,
             'longitude' => 129.87643723808398,
         ]);
