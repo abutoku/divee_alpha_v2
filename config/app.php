@@ -237,5 +237,6 @@ return [
     ],
 
     'google_api' => env('GOOGLE_API_KEY'),
+    'google_tag' => env('GOOGLE_TAG_MANAGER'),
 
 ];

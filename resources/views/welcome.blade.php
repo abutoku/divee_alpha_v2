@@ -166,9 +166,9 @@
     </script>
 
     {{-- google map --}}
-    <script async defer
+    {{-- <script async defer
         src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key={{ config('app.google_api') }}&callback=initMap">
-    </script>
+    </script> --}}
 
     <script>
     'use strict'
